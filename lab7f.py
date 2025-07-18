@@ -15,14 +15,14 @@ class Time:
         """Return time in HH:MM:SS format"""
         return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
 
+    def __add__(self, other):
+        """Overload the + operator to add two time objects"""
+        total_seconds = self.to_seconds() + other.to_seconds()
+        return sec_to_time(total_seconds)
+
     def to_seconds(self):
         """Convert time to total seconds"""
         return self.hour * 3600 + self.minute * 60 + self.second
-
-def sum_times(time1, time2):
-    """Returns the sum of two time objects"""
-    total_seconds = time1.to_seconds() + time2.to_seconds()
-    return sec_to_time(total_seconds)
 
 def sec_to_time(seconds):
     """Convert seconds to a time object"""
@@ -31,13 +31,9 @@ def sec_to_time(seconds):
     seconds = seconds % 60
     return Time(hour, minutes, seconds)
 
-def format_time(time_obj):
-    """Format the time object as a string"""
-    return str(time_obj)
-
 # Example usage
 if __name__ == "__main__":
     t1 = Time(9, 50, 0)
-    t2 = Time(1, 1, 1)
-    t3 = sum_times(t1, t2)
-    print(format_time(t3))
+    t2 = Time(1, 10, 0)
+    t3 = t1 + t2  # Using overloaded + operator
+    print(f"Sum of times: {str(t3)}")

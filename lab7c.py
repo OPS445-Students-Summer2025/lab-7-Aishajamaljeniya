@@ -19,11 +19,6 @@ class Time:
         """Convert time to total seconds"""
         return self.hour * 3600 + self.minute * 60 + self.second
 
-def sum_times(time1, time2):
-    """Returns the sum of two time objects"""
-    total_seconds = time1.to_seconds() + time2.to_seconds()
-    return sec_to_time(total_seconds)
-
 def sec_to_time(seconds):
     """Convert seconds to a time object"""
     hour = seconds // 3600
@@ -37,7 +32,8 @@ def format_time(time_obj):
 
 # Example usage
 if __name__ == "__main__":
-    t1 = Time(9, 50, 0)
-    t2 = Time(1, 1, 1)
-    t3 = sum_times(t1, t2)
-    print(format_time(t3))
+    t = Time(9, 50, 0)
+    seconds = t.to_seconds()
+    print(f"Time in seconds: {seconds}")
+    time_from_seconds = sec_to_time(seconds)
+    print(f"Converted back to time: {format_time(time_from_seconds)}")

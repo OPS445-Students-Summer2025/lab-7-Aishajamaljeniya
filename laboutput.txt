@@ -1,0 +1,14 @@
+10:51:01
+10:20:00
+Time in seconds: 35400
+Converted back to time: 09:50:00
+Time in seconds: 35400
+Formatted time: 09:50:00
+__str__: 09:50:00
+__repr__: Time(9, 50, 0)
+Sum of times: 11:00:00
+print() in main on schoolName: Seneca
+print() in function1 on schoolName: SICT
+print() in main on schoolName: Seneca
+print() in function2 on schoolName: SSDO
+print() in main on schoolName: SSDO

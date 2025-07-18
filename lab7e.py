@@ -15,16 +15,12 @@ class Time:
         """Return time in HH:MM:SS format"""
         return f"{self.hour:02}:{self.minute:02}:{self.second:02}"
 
-    def time_to_sec(self):
-        """Method to convert time to total seconds"""
-        return self.hour * 3600 + self.minute * 60 + self.second
-
-    def format_time(self):
-        """Method to format the time as HH:MM:SS"""
-        return str(self)
+    def __repr__(self):
+        """Return time in a more detailed format for debugging"""
+        return f"Time({self.hour}, {self.minute}, {self.second})"
 
 # Example usage
 if __name__ == "__main__":
     t = Time(9, 50, 0)
-    print(f"Time in seconds: {t.time_to_sec()}")
-    print(f"Formatted time: {t.format_time()}")
+    print(f"__str__: {str(t)}")
+    print(f"__repr__: {repr(t)}")
